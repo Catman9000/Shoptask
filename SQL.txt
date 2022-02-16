@@ -1,0 +1,78 @@
+SHOW DATABASES;
+USE example_database;
+DESCRIBE example_database;
+
+CREATE TABLE customers (
+customer_id int auto_increment,
+first_name varchar(100) NOT NULL,
+last_name varchar(100) NOT NULL,
+age int NOT NULL
+PRIMARY KEY(customer_id)
+);
+CREATE TABLE customers 
+
+CREATE TABLE products(
+  product_id int NOT NULL AUTO_INCREMENT,
+  title varchar(60) NOT NULL,
+  price decimal(6,2) NOT NULL,
+  stock int NOT NULL,
+  PRIMARY KEY (product_id)
+);
+
+Create table orders (
+		order_id int auto_increment,
+        fk_user_id int not null,customer_id
+        orderdate datetime not null,
+        primary key (order_id),
+        foreign key (fk_order_id)
+        );
+        
+	create table orderline (
+    orderline_id int auto_increment,
+    fk_order_id int not null,
+    quantity int not null,
+    fk_product_id int not null,
+    total decimal (6,2) not null,
+    primary key (orderline_id),
+    foreign key (fk_order_id) references orders(order_id),
+    foreign key (fk_product_id) references products(product_id)
+    );
+    
+
+        
+INSERT INTO Customers (First_name, Last_name, email, passw, billing_address, Contact_number)
+VALUES ('Cat', 'Mania', 'catman@hotmail.com', 'Loop123', '4 Cat Ave, Cat Island, Catnation, CAT 1337', '0700100200');
+
+INSERT INTO Customers (First_name, Last_name, email, passw, billing_address, Contact_number)
+VALUES ('Cata', 'Maniaa', 'catmana@hotmail.com', 'Loop123a', '45 Cat Ave, Cat Island, Catnation, CAT 1338', '0700100201');
+    
+ INSERT INTO Customers (First_name, Last_name, email, passw, billing_address, Contact_number)
+VALUES ('Catb', 'Maniab', 'catmanb@hotmail.com', 'Loop123b', '45 Cat Ave, Cat Island, Catnation, CAT 1339', '0700100202');   
+
+INSERT INTO Customers (First_name, Last_name, email, passw, billing_address, Contact_number)
+VALUES ('Catc', 'Maniac', 'catmanc@hotmail.com', 'Loop123c', '46 Cat Ave, Cat Island, Catnation, CAT 1340', '0700100203');   
+
+INSERT INTO Customers (First_name, Last_name, email, passw, billing_address, Contact_number)
+VALUES ('Catd', 'Maniad', 'catmand@hotmail.com', 'Loop123d', '46 Cat Ave, Cat Island, Catnation, CAT 1341', '0700100204');   
+
+INSERT INTO products (prodname, details, price, stock)
+VALUES ('Cat ball', 'A ball that cats love', '05.00', '10');   
+
+INSERT INTO products (prodname, details, price, stock)
+VALUES ('Cat bowl', 'A bowl that cats love to drink from', '10.00', '12');
+
+INSERT INTO products (prodname, details, price, stock)
+VALUES ('Cat teddy', 'A teddy that cats love', '05.00', '10');
+
+INSERT INTO products (prodname, details, price, stock)
+VALUES ('Cat litter', 'A litter that cats love', '05.00', '10');
+
+INSERT INTO products (prodname, details, price, stock)
+VALUES ('Cat nip', 'Nip that catnips cats', '11.00', '10');
+
+INSERT INTO orders (fk_user_id, orderdate)
+VALUES (1, '2022.1.01'); 
+
+INSERT INTO orderline (fk_order_id, fk_product_id, quantity, total )
+VALUES (1, 1, 1, 10.00);
+
